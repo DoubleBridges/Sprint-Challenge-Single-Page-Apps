@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
 import { Card, Label, Icon } from 'semantic-ui-react'
 
 const EpisodeCard = (props) => {

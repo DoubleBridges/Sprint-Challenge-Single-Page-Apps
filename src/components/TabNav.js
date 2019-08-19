@@ -8,20 +8,28 @@ const TabNav = () => {
   return (
     <Menu>
       <Menu.Item >
-        <Icon name='home' />
-        Home
+        <NavLink exact to="/">
+          <Icon name='home' />
+          Home
+      </NavLink>
       </Menu.Item>
       <Menu.Item>
-        <Icon name='users' />
-        Characters
+        <NavLink exact to="/characters">
+          <Icon name='users' />
+          Characters
+      </NavLink>
       </Menu.Item>
       <Menu.Item>
-        <Icon name='map signs' />
-        Locations
+        <NavLink exact to="/locations">
+          <Icon name='map signs' />
+          Locations
+        </NavLink>
       </Menu.Item>
       <Menu.Item>
-        <Icon name='film' />
-        Episodes
+        <NavLink exact to="/episodes">
+          <Icon name='film' />
+          Episodes
+      </NavLink>
       </Menu.Item>
     </Menu>
   )

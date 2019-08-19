@@ -12,7 +12,6 @@ export default function App() {
       <Header />
       <TabNav />
       <AppRouter />
-      <Episodes />
     </main>
   );
 }
