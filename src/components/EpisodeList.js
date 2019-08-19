@@ -3,12 +3,12 @@ import { Card } from 'semantic-ui-react'
 
 import PageButtons from './PageButtons';
 import axios from 'axios';
-import LocationCard from './LocationCard';
+import EpisodeCard from './EpisodeCard';
 
 
-const Locations = () => {
+const Episodes = () => {
 
-  const [api, setApi] = useState(`https://rickandmortyapi.com/api/location/`);
+  const [api, setApi] = useState(`https://rickandmortyapi.com/api/episode/`);
   const [results, setResults] = useState([]);
   const [info, setInfo] = useState({});
 
@@ -26,13 +26,13 @@ const Locations = () => {
   const nextPageHandler = () => setApi(info.next)
 
 
-  const locationsPage = results.map(location => {
+  const episodesPage = results.map(episode => {
 
     return (
 
-      <LocationCard
-        results={location}
-        key={location.id}
+      <EpisodeCard
+        results={episode}
+        key={episode.id}
       />
 
     )
@@ -43,7 +43,7 @@ const Locations = () => {
       <Card.Group
         centered
         itemsPerRow={2}>
-        {locationsPage}
+        {episodesPage}
       </Card.Group>
       <PageButtons
         api={api}
@@ -56,4 +56,4 @@ const Locations = () => {
 
 }
 
-export default Locations
+export default Episodes
