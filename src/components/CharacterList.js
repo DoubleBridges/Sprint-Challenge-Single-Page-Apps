@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from 'semantic-ui-react'
+import axios from 'axios';
 
 import CharacterCard from './CharacterCard';
 import PageButtons from './PageButtons';
-import axios from 'axios';
 
 
-const Characters = (props) => {
+const Characters = () => {
 
   const [api, setApi] = useState(`https://rickandmortyapi.com/api/character/`);
   const [results, setResults] = useState([]);
@@ -24,7 +24,6 @@ const Characters = (props) => {
 
   const prevPageHandler = () => setApi(info.prev)
   const nextPageHandler = () => setApi(info.next)
-
 
   const characterPage = results.map(character => {
 
@@ -55,5 +54,7 @@ const Characters = (props) => {
   )
 
 }
+
+
 
 export default Characters

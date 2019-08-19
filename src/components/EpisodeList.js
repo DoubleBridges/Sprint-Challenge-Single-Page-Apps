@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from 'semantic-ui-react'
+import axios from 'axios';
 
 import PageButtons from './PageButtons';
-import axios from 'axios';
 import EpisodeCard from './EpisodeCard';
 
 

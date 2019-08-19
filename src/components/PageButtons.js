@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react'
 import styled from 'styled-components';
 
 const PageButtonContainer = styled.span`
-  padding-top: 50px;
+  margin-top: 50px;
 
 `;
 
@@ -27,9 +27,9 @@ const PageButtons = (props) => {
   }
 
   const pageCount = info.pages
-  const pageNum = getPageNum()
-  const prevDisabled = (pageNum === '1')
-  const nextDisabled = (pageNum == pageCount)
+  const pageNum = parseInt(getPageNum())
+  const prevDisabled = (pageNum === 1)
+  const nextDisabled = (pageNum === pageCount)
   return (
     <PageButtonContainer>
       <Button.Group widths='3'>

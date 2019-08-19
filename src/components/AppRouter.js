@@ -2,6 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import WelcomePage from './WelcomePage';
 import Characters from './CharacterList';
+import Locations from './LocationsList';
+import Episodes from './EpisodeList';
 
 
 const AppRouter = () => {
@@ -12,6 +14,17 @@ const AppRouter = () => {
       <Route
         exact path="/characters"
         render={props => <Characters
+          {...props}
+        />}
+      />
+      <Route
+        exact path="/locations"
+        render={props => <Locations
+          {...props}
+        />}
+      />      <Route
+        exact path="/episodes"
+        render={props => <Episodes
           {...props}
         />}
       />
