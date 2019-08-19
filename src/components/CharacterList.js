@@ -1,16 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
+import { Card } from 'semantic-ui-react'
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+import CharacterCard from './CharacterCard';
+import PageButtons from './PageButtons';
+import axios from 'axios';
+
+
+const Characters = (props) => {
+
+  const [api, setApi] = useState(`https://rickandmortyapi.com/api/character/`);
+  const [results, setResults] = useState([]);
+  const [info, setInfo] = useState({});
 
   useEffect(() => {
-    // TODO: Add AJAX/API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+    axios
+      .get(api)
+      .then(res => {
+        setResults(res.data.results)
+        setInfo(res.data.info)
+      })
+      .catch(err => console.log(err))
+  }, [api])
+
+  const prevPageHandler = () => setApi(info.prev)
+  const nextPageHandler = () => setApi(info.next)
+
+
+  const characterPage = results.map(character => {
+
+    return (
+
+      <CharacterCard
+        results={character}
+        key={character.id}
+      />
+
+    )
+  })
 
   return (
-    <section className="character-list grid-view">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
+    <>
+      <Card.Group
+        centered
+        itemsPerRow={2}>
+        {characterPage}
+      </Card.Group>
+      <PageButtons
+        api={api}
+        info={info}
+        prevPage={prevPageHandler}
+        nextPage={nextPageHandler}
+      />
+    </>
+  )
+
 }
+
+export default Characters
